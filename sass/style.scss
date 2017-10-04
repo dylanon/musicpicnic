@@ -1,0 +1,121 @@
+/*
+ Theme Name:   Music Picnic
+ Theme URI:    
+ Description:  Theme for music and theatre company Music Picnic. Child theme of Genesis Framework.
+ Author:       Dylan On
+ Author URI:   https://dylanon.com
+ Template:     genesis
+ Version:      0.0.1
+ License:      GPL-2.0+
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-menu, featured-images, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, accessibility-ready
+ Text Domain:  music-picnic
+*/
+
+// Variables
+
+$primary-color:				#3ff6c1;
+$secondary-color:			#e0fcfe;
+
+// Normalize stylesheet v7.0.0
+@import "normalize";
+
+// Set box sizing
+html {
+	box-sizing: border-box;
+}
+
+// Set colours
+body {
+	background-color: $secondary-color;
+}
+
+// Set page width
+.site-header > .wrap {
+	margin: 0 auto;
+	min-width: 1150px;
+}
+
+// Set Navbar and Footer background
+.site-header,
+.site-footer {
+	background-color: $primary-color;
+}
+
+// Styling for child elements of <header>
+.site-header {
+
+	// Make navbar fixed
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+
+	// Navbar drop shadow
+	-webkit-filter: drop-shadow(1px 1px 1px #000000);
+	filter: drop-shadow(1px 1px 1px #000000);
+
+	// Navbar font
+	font-family: Montserrat;
+
+
+	// Remove link underline
+	a {
+		color: #000000;
+		text-decoration: none;
+	}
+	// Display list horizontally
+	li {
+		display: inline;
+		padding-left: 30px;
+	}
+	// Remove bullets
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	// Hide child menu items
+	.sub-menu {
+		display: none;
+	}
+
+	// Wordmark styles
+	.site-title {
+		font-size: 32px;
+		font-weight: 900;
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	// Position wordmark left
+	.title-area {
+		float: left;
+	}
+
+	// Position menu items right and vertically centered
+	.nav-primary {
+		float: right;
+		padding: 9px 0;
+	}
+
+	// Menu item styles
+	.menu-primary {
+		font-size: 18px;
+		font-weight: 400;
+		text-transform: lowercase;
+	}
+}
+
+// Clearfix for floats
+.site-header > .wrap,
+.nav-primary > .wrap  {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+// Set navbar padding
+.site-header > .wrap {
+	padding: 1em;
+}
