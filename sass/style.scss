@@ -14,32 +14,58 @@
 
 // Variables
 
-$primary-color:				#3ff6c1;
-$secondary-color:			#e0fcfe;
+$primary-color:				#ffed51;
+$secondary-color:			#ffffff; //#a3d2ee; Gingham blue???
+$highlight-color:			#00ff6e; // Green grass
+$main-font:					"Open Sans";
+$brand-font:				"Montserrat";
 
 // Normalize stylesheet v7.0.0
 @import "normalize";
 
-// Set box sizing
+// Make lengths include padding & make sure html takes up full page height
 html {
 	box-sizing: border-box;
+	height: 100%;
 }
 
-// Set colours
+// Global styles
 body {
 	background-color: $secondary-color;
+	font-family: $main-font;
 }
 
-// Set page width
+a {
+	text-decoration: none;
+}
+
+// Set page content width and padding
+.entry-content {
+	max-width: 950px; // 1150px matches navbar
+	margin: auto;
+	padding: 0 1em;
+}
+
+// Set navbar width and padding
 .site-header > .wrap {
 	margin: 0 auto;
 	min-width: 1150px;
+	padding: 1em;
 }
 
 // Set Navbar and Footer background
 .site-header,
 .site-footer {
 	background-color: $primary-color;
+}
+
+// Wordmark styles
+.site-title {
+	font-family: $brand-font;
+	font-size: 32px;
+	font-weight: 900;
+	margin: 0;
+	text-transform: uppercase;
 }
 
 // Styling for child elements of <header>
@@ -56,13 +82,12 @@ body {
 	filter: drop-shadow(1px 1px 1px #000000);
 
 	// Navbar font
-	font-family: Montserrat;
+	font-family: $brand-font;
 
 
 	// Remove link underline
 	a {
 		color: #000000;
-		text-decoration: none;
 	}
 	// Display list horizontally
 	li {
@@ -78,14 +103,6 @@ body {
 	// Hide child menu items
 	.sub-menu {
 		display: none;
-	}
-
-	// Wordmark styles
-	.site-title {
-		font-size: 32px;
-		font-weight: 900;
-		margin: 0;
-		text-transform: uppercase;
 	}
 
 	// Position wordmark left
@@ -115,7 +132,44 @@ body {
 	clear: both;
 }
 
-// Set navbar padding
-.site-header > .wrap {
+// Move page content into view (was blocked by navbar)
+.site-inner {
+	margin-top: 70px;
+}
+
+// Sizing for featured image on pages
+.mp-page-header-image {
+	height: 350px;
+	-o-object-fit: cover;
+	object-fit: cover;
+	width: 100%;
+}
+
+// Page Typography
+.entry-title {
+	padding: 0 1em;
+	text-align: center;
+	text-transform: lowercase;
+}
+
+// Footer styling
+.site-footer {
+	margin-top: 3em;
+	margin-bottom: 0;
+	min-height: 100px;
 	padding: 1em;
+	text-align: center;
+
+	a {
+		color: #000000;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+.footer-site-title {
+	@extend .site-title;
+	font-size: 16px;
 }

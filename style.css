@@ -403,18 +403,36 @@ template {
   display: none; }
 
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  height: 100%; }
 
 body {
-  background-color: #e0fcfe; }
+  background-color: #ffffff;
+  font-family: "Open Sans"; }
+
+a {
+  text-decoration: none; }
+
+.entry-content {
+  max-width: 950px;
+  margin: auto;
+  padding: 0 1em; }
 
 .site-header > .wrap {
   margin: 0 auto;
-  min-width: 1150px; }
+  min-width: 1150px;
+  padding: 1em; }
 
 .site-header,
 .site-footer {
-  background-color: #3ff6c1; }
+  background-color: #ffed51; }
+
+.site-title, .footer-site-title {
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase; }
 
 .site-header {
   position: fixed;
@@ -423,10 +441,9 @@ body {
   top: 0;
   -webkit-filter: drop-shadow(1px 1px 1px #000000);
   filter: drop-shadow(1px 1px 1px #000000);
-  font-family: Montserrat; }
+  font-family: "Montserrat"; }
   .site-header a {
-    color: #000000;
-    text-decoration: none; }
+    color: #000000; }
   .site-header li {
     display: inline;
     padding-left: 30px; }
@@ -436,11 +453,6 @@ body {
     padding: 0; }
   .site-header .sub-menu {
     display: none; }
-  .site-header .site-title {
-    font-size: 32px;
-    font-weight: 900;
-    margin: 0;
-    text-transform: uppercase; }
   .site-header .title-area {
     float: left; }
   .site-header .nav-primary {
@@ -457,7 +469,32 @@ body {
   display: table;
   clear: both; }
 
-.site-header > .wrap {
-  padding: 1em; }
+.site-inner {
+  margin-top: 70px; }
+
+.mp-page-header-image {
+  height: 350px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%; }
+
+.entry-title {
+  padding: 0 1em;
+  text-align: center;
+  text-transform: lowercase; }
+
+.site-footer {
+  margin-top: 3em;
+  margin-bottom: 0;
+  min-height: 100px;
+  padding: 1em;
+  text-align: center; }
+  .site-footer a {
+    color: #000000; }
+  .site-footer p {
+    margin: 0; }
+
+.footer-site-title {
+  font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */
