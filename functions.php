@@ -42,3 +42,6 @@ function mp_footer_text() {
 	return '<span class="footer-site-title">Music Picnic</span><br><a href="mailto:info@musicpicnic.com">info@musicpicnic.com</a>';
 }
 add_filter( 'genesis_footer_creds_text', 'mp_footer_text' );
+
+//* Add support for 3-column footer widgets
+add_theme_support( 'genesis-footer-widgets', 3 );

@@ -20,13 +20,18 @@ $highlight-color:			#00ff6e; // Green grass
 $main-font:					"Open Sans";
 $brand-font:				"Montserrat";
 
+$nav-content-max-width:			1150px;
+
 // Normalize stylesheet v7.0.0
 @import "normalize";
 
-// Make lengths include padding & make sure html takes up full page height
+// Make lengths include padding
 html {
 	box-sizing: border-box;
-	height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 // Global styles
@@ -41,7 +46,7 @@ a {
 
 // Set page content width and padding
 .entry-content {
-	max-width: 950px; // 1150px matches navbar
+	max-width: 950px; // $nav-content-width matches navbar
 	margin: auto;
 	padding: 0 1em;
 }
@@ -49,13 +54,13 @@ a {
 // Set navbar width and padding
 .site-header > .wrap {
 	margin: 0 auto;
-	min-width: 1150px;
+	max-width: $nav-content-max-width;
 	padding: 1em;
+	width: 100%; // Take up full width
 }
 
-// Set Navbar and Footer background
-.site-header,
-.site-footer {
+// Set Navbar background
+.site-header {
 	background-color: $primary-color;
 }
 
@@ -125,8 +130,7 @@ a {
 }
 
 // Clearfix for floats
-.site-header > .wrap,
-.nav-primary > .wrap  {
+.site-header > .wrap  {
 	content: "";
 	display: table;
 	clear: both;
@@ -153,12 +157,13 @@ a {
 }
 
 // Footer styling
-.site-footer {
-	margin-top: 3em;
+// Set footer and footer widgets background & other shared styles
+.site-footer,
+.footer-widgets {
+	background-color: $primary-color;
 	margin-bottom: 0;
-	min-height: 100px;
+	// min-height: 100px;
 	padding: 1em;
-	text-align: center;
 
 	a {
 		color: #000000;
@@ -169,7 +174,52 @@ a {
 	}
 }
 
+// Center wordmark and contact e-mail
+.site-footer {
+	text-align: center;
+}
+
+// Footer wordmark
 .footer-site-title {
 	@extend .site-title;
 	font-size: 16px;
+}
+
+.footer-widgets {
+	// (Real) footer top margin
+	margin-top: 3em;
+	// Remove default top margin on h4 widget titles
+	.widget-title {
+		margin: 0;
+	}
+}
+
+// Footer widget areas
+.footer-widget-area {
+	// Create columns
+	float: left;
+	width: 33.33333%;
+}
+
+.footer-widgets-1 {
+	padding-right: 1em;
+}
+.footer-widgets-2 {
+	padding: 0 1em;
+}
+.footer-widgets-3 {
+	padding-left: 1em;
+}
+
+// Footer widget clearfix and layout
+.footer-widgets > .wrap {
+	// Clearfix
+	content: "";
+	display: table;
+	clear: both;
+	// Match width to .site-header
+	margin: 0 auto;
+	max-width: $nav-content-max-width;
+	padding: 1em;
+	width: 100%;
 }
