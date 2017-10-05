@@ -199,19 +199,21 @@ a {
 	// Create columns
 	float: left;
 	width: 33.33333%;
+	// border: 1px solid black;
 }
 
+// Footer widget area spacing
 .footer-widgets-1 {
 	padding-right: 1em;
 }
 .footer-widgets-2 {
-	padding: 0 1em;
+	padding: 0 0.5em;
 }
 .footer-widgets-3 {
 	padding-left: 1em;
 }
 
-// Footer widget clearfix and layout
+// Footer widgets div clearfix and layout
 .footer-widgets > .wrap {
 	// Clearfix
 	content: "";
@@ -222,4 +224,31 @@ a {
 	max-width: $nav-content-max-width;
 	padding: 1em;
 	width: 100%;
+}
+
+// Style footer menu widget
+.footer-widgets .widget_nav_menu {
+	// Make text lowercase
+	text-transform: lowercase;
+
+	ul.menu {
+		// Spread menu over two columns
+		-webkit-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 6 * 16px;
+		column-gap: 6 * 16px;
+		// Remove menu bullets
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		margin: 0 0 0.5em 0;
+	}
+
+	// Hide child menu items
+	.sub-menu {
+		display: none;
+	}
 }
