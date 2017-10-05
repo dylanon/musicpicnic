@@ -301,4 +301,16 @@ a {
  		background-color: #ffffff;
  		color: #000000;
  	}
+
+ 	// Style the response div
+ 	.mc4wp-response:empty {
+ 		display: none; // Hide if no message (default)
+ 	}
+ 	.mc4wp-response {
+	    margin-top: 16px;
+	    background-color: white;
+	    line-height: 1.25;
+	    padding: 8px 16px;
+	    border: 1px dashed black;
+ 	}
 }
