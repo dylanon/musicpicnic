@@ -30,7 +30,7 @@ html {
 	box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: inherit;
 }
 
@@ -129,7 +129,7 @@ a {
 	.menu-item-has-children {
 		position: relative; // Prepare parent li for absolute positioning of submenu li items
 	}
-	
+
 	.sub-menu {
 		display: none; // Hide when not hovering
 		margin: 0;
@@ -189,6 +189,10 @@ a {
 	padding: 0 16px;
 	text-align: center;
 	text-transform: lowercase;
+}
+
+.entry-content {
+	line-height: 1.4;
 }
 
 /* Footer Styles */
