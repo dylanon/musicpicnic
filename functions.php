@@ -11,6 +11,9 @@ define( 'CHILD_THEME_VERSION', '0.0.1' );
 //* Add HTML5 markup structure for Genesis Framework
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
+//* Add Viewport meta tag for mobile browsers (requires HTML5 theme support)
+add_theme_support( 'genesis-responsive-viewport' );
+
 //* Remove the site description
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
