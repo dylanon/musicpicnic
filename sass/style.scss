@@ -21,6 +21,9 @@ $main-font:					"Open Sans";
 $brand-font:				"Montserrat";
 
 $nav-content-max-width:			1150px;
+$page-margin:					auto;
+$page-padding:					0 16px;
+$page-width:					950px;
 
 // Normalize stylesheet v7.0.0
 @import "normalize";
@@ -46,9 +49,9 @@ a {
 
 // Set page content width and padding
 .entry-content {
-	max-width: 950px; // $nav-content-width matches navbar
-	margin: auto;
-	padding: 0 16px;
+	max-width: $page-width; // $nav-content-width matches navbar
+	margin: $page-margin;
+	padding: $page-padding;
 }
 
 // Set navbar width and padding
@@ -194,6 +197,8 @@ a {
 .entry-content {
 	line-height: 1.4;
 }
+
+/* Shows Archive Template Styles */
 
 /* Footer Styles */
 
