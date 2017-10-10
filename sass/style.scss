@@ -193,6 +193,7 @@ hr {
 // Sizing for featured image on pages
 .mp-page-header-image {
 	height: 350px;
+	margin-bottom: -3px; // Fix mysterious 3 pixel gap under image
 	-o-object-fit: cover;
 	object-fit: cover;
 	width: 100%;
@@ -260,6 +261,38 @@ h6 {
 
 .has-post-thumbnail .entry-title {
 	padding: 0 16px; // Adjust title padding for pages with a featured image - less needed because none hidden beneath navbar
+}
+
+/* Front Page Template */
+.home {
+
+	// Make featured image bigger
+	.mp-page-header-image {
+		height: 450px;
+	}
+
+	// Style content strip
+	.mp-frontpage-content-bg {
+		background-color: #1e34b2;
+		padding: 16px;
+		width: 100%;
+	}
+
+	.entry-content {
+		color: #ffffff;
+		max-width: $nav-content-max-width; // Match with navbar and footer
+		text-align: center;
+
+		a {
+			color: $primary-color;
+		}
+
+		p {
+			margin: 0;
+		}
+
+	}
+
 }
 
 /* Shows Archive Template Styles */

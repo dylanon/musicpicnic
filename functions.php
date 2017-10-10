@@ -47,3 +47,8 @@ add_filter( 'genesis_footer_creds_text', 'mp_footer_text' );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
+
+//* This function returns false - for the 'edit link' filter in front-page.php
+function mp_return_false() {
+	return false;
+}
