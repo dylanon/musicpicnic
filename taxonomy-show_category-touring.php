@@ -53,8 +53,10 @@ function mp_shows_archive_loop() {
 					 				'terms' => 'touring',
 					 			),
 							),
-			'orderby'   => 'menu_order title', // Sort by title from a - z,
-			'order'     => 'ASC',			   // or by the Order field from 1 - 10+ if it's set.
+			'orderby'   => 	array(					// Sort by menu order 0 - 10+, then by date starting from most recent
+							'menu_order' => 'ASC', 
+							'date' => 'DESC' 
+							)
 		);
 		// Output all posts of type 'shows' and show category 'touring'
 		genesis_custom_loop( $mpargs );
