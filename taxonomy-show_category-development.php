@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Shows - All
+ * Template Name: Shows - In Development
  */
 
 // First, standard genesis loop displays the page content.
@@ -44,7 +44,17 @@ function mp_shows_archive_loop() {
 			'context' => 'shows-archive',
 		) );
 		// Output all posts of type 'shows'
-		genesis_custom_loop( array( 'post_type'=>'shows' ) );
+		genesis_custom_loop( array( 
+							 'post_type' => 'shows',
+							 'tax_query' => array(
+								 				array(
+									 				'taxonomy' => 'show_category',
+									 				'field' => 'slug',
+									 				'terms' => 'development',
+									 			),
+							 				),
+			 				 )
+		);
 		// Output closing markup
 		genesis_markup( array(
 			'close'   => '</section>',
