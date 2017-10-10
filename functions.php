@@ -31,9 +31,9 @@ unregister_sidebar( 'header-right' );
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_header', 'genesis_do_nav', 12 );
 
-//* Add Featured Image to header on Pages
+//* Add Featured Image to header for Pages, Posts, and Attachments
 function mp_page_header_featured_image() {
-	if ( is_page() and has_post_thumbnail() ) {
+	if ( is_singular() and has_post_thumbnail() ) {
 		the_post_thumbnail( 'full', array( 'class' => 'mp-page-header-image') );
 	}
 }
