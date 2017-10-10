@@ -193,20 +193,28 @@ a:hover {
 	width: 100%;
 }
 
-// Page Typography
-.entry-title {
-	padding: 0 16px;
-	text-align: center;
-	text-transform: lowercase;
-}
+/* Page Typography */
 
 .entry-content {
 	line-height: 1.4;
 }
 
+.entry-title {
+	padding: 0.67em 16px 0 16px; // Padding for pages without a featured image - need more because some is hidden beneath navbar
+	text-align: center;
+	text-transform: lowercase;
+}
+
+.has-post-thumbnail .entry-title {
+	padding: 0 16px; // Adjust title padding for pages with a featured image - less needed because none hidden beneath navbar
+}
+
 /* Shows Archive Template Styles */
 
 .shows-archive {
+
+	// Insert space between page content and shows archive
+	margin: 32px 0 0 0;
 
 	.entry-content {
 		// Clearfix
