@@ -93,6 +93,7 @@ hr {
 	left: 0;
 	right: 0;
 	top: 0;
+	z-index: 100; // Make sure it's the top layer
 
 	// Navbar drop shadow
 	-webkit-filter: drop-shadow(1px 1px 1px #000000);
