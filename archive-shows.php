@@ -43,8 +43,14 @@ function mp_shows_archive_loop() {
 			'open'   => '<section %s>',
 			'context' => 'shows-archive',
 		) );
+		// Set custom query arguments
+		$mpargs = array(
+			'post_type' => 'shows',
+			'orderby'   => 'menu_order title', // Sort by title from a - z,
+			'order'     => 'ASC',			   // or by the Order field from 1 - 10+ if it's set.
+		);
 		// Output all posts of type 'shows'
-		genesis_custom_loop( array( 'post_type'=>'shows' ) );
+		genesis_custom_loop( $mpargs );
 		// Output closing markup
 		genesis_markup( array(
 			'close'   => '</section>',
