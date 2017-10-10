@@ -44,6 +44,11 @@ body {
 }
 
 a {
+	color: #000000;
+	text-decoration: underline;
+}
+
+a:hover {
 	text-decoration: none;
 }
 
@@ -95,7 +100,8 @@ a {
 
 	// Remove link underline
 	a {
-		color: #000000;
+		// color: #000000; // Already set in global styles
+		text-decoration: none;
 	}
 	// Display list horizontally
 	.genesis-nav-menu > li {
@@ -200,6 +206,46 @@ a {
 
 /* Shows Archive Template Styles */
 
+.shows-archive {
+
+	.entry-content {
+		// Clearfix
+		content: "";
+		display: table;
+		clear: both;
+		// Space out shows
+		margin-bottom: 8px;
+		padding: 16px;
+		// Narrow the page width to 90%
+		max-width: $page-width * 0.9;
+	}
+
+	// Highlight show panel background grey on hover
+	.entry-content:hover {
+		background-color: #f3f3f3;
+	}
+
+	.entry-image {
+		float: left;
+		-o-object-fit: cover;
+		object-fit: cover;
+		height: 250px;
+		width: 30%; // .shows-archive-text-wrapper is 70% wide
+	}
+
+	.entry-title {
+		padding: 0; // Remove left padding
+		text-align: left;
+	}
+
+	.shows-archive-text-wrapper {
+		float: left;
+		padding: 0 16px; // Pad left side to separate from show image
+		width: 70%; // .entry-image is 30% wide
+	}
+
+}
+
 /* Footer Styles */
 
 // Set footer and footer widgets background & other shared styles
@@ -211,7 +257,8 @@ a {
 	padding: 16px;
 
 	a {
-		color: #000000;
+		// color: #000000; // Already set in global styles
+		text-decoration: none;
 	}
 
 	p {
