@@ -65,6 +65,7 @@ function mp_shows_archive_loop() {
 	genesis_reset_loops();
 }
 
+// Remove date from the show post
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
 genesis();
