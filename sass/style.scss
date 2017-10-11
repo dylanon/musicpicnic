@@ -309,6 +309,11 @@ h6 {
 
 	}
 
+	// Remove top margin on front page only
+	.footer-widgets {
+		margin-top: 0;
+	}
+
 }
 
 /* Shows Archive Template Styles */
@@ -601,7 +606,7 @@ h6 {
 	// Center the title and tagline horizontally, and position vertically
 	position: absolute;
     left: 50%;
-    top: 20%;
+    top: 7%;
     text-align: center;
     transform: translateX(-50%);
 }
@@ -621,7 +626,7 @@ h6 {
 
 .mp-show-widget-buttons {
 	position: absolute;
-    bottom: 5%;
+    bottom: 7%;
     left: 50%;
     transform: translateX(-50%);
 
