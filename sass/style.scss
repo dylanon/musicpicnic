@@ -293,6 +293,22 @@ h6 {
 
 	}
 
+	.content {
+		// Clearfix
+		content: "";
+		display: table;
+		clear: both;
+
+		// Widget Areas
+		.widget {
+			float: left;
+			height: 300px;
+			overflow: hidden;
+			width: 50%;
+		}
+
+	}
+
 }
 
 /* Shows Archive Template Styles */
