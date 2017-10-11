@@ -23,10 +23,21 @@ function mp_wrap_frontpage_content_close() {
 // Display widgets
 add_action( 'genesis_after_loop', 'mp_display_home_widgets' );
 function mp_display_home_widgets() {
-	dynamic_sidebar( 'mp_home_1' );
-	dynamic_sidebar( 'mp_home_2' );
-	dynamic_sidebar( 'mp_home_3' );
-	dynamic_sidebar( 'mp_home_4' );
+	if ( is_active_sidebar( 'mp_home_1' ) ) {
+		dynamic_sidebar( 'mp_home_1' );
+	}
+
+	if ( is_active_sidebar( 'mp_home_2' ) ) {
+		dynamic_sidebar( 'mp_home_2' );
+	}
+
+	if ( is_active_sidebar( 'mp_home_3' ) ) {
+		dynamic_sidebar( 'mp_home_3' );
+	}
+
+	if ( is_active_sidebar( 'mp_home_4' ) ) {
+		dynamic_sidebar( 'mp_home_4' );
+	}
 }
 
 genesis();
