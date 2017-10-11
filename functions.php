@@ -163,7 +163,17 @@ class Foo_Widget extends WP_Widget {
 
 	        echo '</div>';
 
-		}
+			} else {
+
+				// Output instructions on how to find Show Post ID
+				echo '<div style="color: #000000;">';
+				echo '<h2>How to Use this Widget</h2>';
+				echo '<p>To use this widget, specify a Show Post ID.</p>';
+				echo '<p>To find the Show Post ID, click <a href="' . site_url() . '/wp-admin/edit.php?post_type=shows' . '">here</a> and hover your cursor over a Show name.</p>';
+				echo '<p>Your browser will preview the URL for you (likely in the bottom corner). The number after <pre>post=</pre> in the URL is the Show Post ID.</p>';
+				echo '</div>';
+
+			}
 
         echo $after_widget;
     }
