@@ -100,9 +100,9 @@ function mp_register_home_widget_areas() {
 add_action( 'widgets_init', 'mp_register_home_widget_areas' );
 
 /**
- * Adds Foo_Widget widget.
+ * Adds Music Picnic Show widget.
  */
-class Foo_Widget extends WP_Widget {
+class MP_Show_Widget extends WP_Widget {
  
     /**
      * Register widget with WordPress.
@@ -129,7 +129,10 @@ class Foo_Widget extends WP_Widget {
         $show_post_id = apply_filters( 'widget_show_post_id', $instance['show_post_id'] );
         $tagline = apply_filters( 'widget_show_tagline', $instance['tagline'] );
         $left_button_text = apply_filters( 'widget_left_button_text', $instance['left_button_text'] );
- 
+        $left_button_url = apply_filters( 'widget_left_button_url', $instance['left_button_url'] );
+        $right_button_text = apply_filters( 'widget_right_button_text', $instance['right_button_text'] );
+        $right_button_url = apply_filters( 'widget_right_button_url', $instance['right_button_url'] );
+
         echo $before_widget;
 
         if ( ! empty( $title ) ) {
@@ -160,9 +163,12 @@ class Foo_Widget extends WP_Widget {
 	        echo '<div class="mp-show-widget-buttons">';
 
 	        if ( ! empty( $left_button_text ) ) {
-	        	echo '<a href="#" class="mp-show-widget-button mp-button-left">' . $left_button_text . '</a>';
+	        	echo '<a href="' . $left_button_url . '" class="mp-show-widget-button mp-button-left">' . $left_button_text . '</a>';
 	        }
-	        echo '<a href="#" class="mp-show-widget-button mp-button-right">click here</a>';
+
+	        if ( ! empty( $right_button_text ) ) {
+	        	echo '<a href="' . $right_button_url . '" class="mp-show-widget-button mp-button-right">' . $right_button_text . '</a>';
+	        }
 
 	        echo '</div>';
 
@@ -221,6 +227,33 @@ class Foo_Widget extends WP_Widget {
             $left_button_text = __( 'learn more', 'text_domain' );
         }
 
+  		// Get or set Left Button URL
+        if ( isset( $instance[ 'left_button_url' ] ) ) {
+            $left_button_url = $instance[ 'left_button_url' ];
+        }
+        else {
+        	$mp_site_url = site_url();
+            $left_button_url = __( $mp_site_url, 'text_domain' );
+        }
+
+    	// Get or set Right Button text
+        if ( isset( $instance[ 'right_button_text' ] ) ) {
+            $right_button_text = $instance[ 'right_button_text' ];
+        }
+        else {
+            $right_button_text = __( 'learn more', 'text_domain' );
+        }
+
+  		// Get or set Right Button URL
+        if ( isset( $instance[ 'right_button_url' ] ) ) {
+            $right_button_url = $instance[ 'right_button_url' ];
+        }
+        else {
+        	$mp_site_url = site_url();
+            $right_button_url = __( $mp_site_url, 'text_domain' );
+        }
+
+
         ?>
         <p>
         <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Widget Title:' ); ?></label>
@@ -242,6 +275,22 @@ class Foo_Widget extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id( 'left_button_text' ); ?>" name="<?php echo $this->get_field_name( 'left_button_text' ); ?>" type="text" value="<?php echo esc_attr( $left_button_text ); ?>" />
         </p>
 
+        <p>
+        <label for="<?php echo $this->get_field_name( 'left_button_url' ); ?>"><?php _e( 'Button 1 Link URL (start with http://):' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'left_button_url' ); ?>" name="<?php echo $this->get_field_name( 'left_button_url' ); ?>" type="url" value="<?php echo esc_url( $left_button_url ); ?>" />
+        </p>
+
+        <p>
+        <label for="<?php echo $this->get_field_name( 'right_button_text' ); ?>"><?php _e( 'Button 2 Text:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'right_button_text' ); ?>" name="<?php echo $this->get_field_name( 'right_button_text' ); ?>" type="text" value="<?php echo esc_attr( $right_button_text ); ?>" />
+        </p>
+
+        <p>
+        <label for="<?php echo $this->get_field_name( 'right_button_url' ); ?>"><?php _e( 'Button 2 Link URL (start with http://):' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'right_button_url' ); ?>" name="<?php echo $this->get_field_name( 'right_button_url' ); ?>" type="url" value="<?php echo esc_url( $right_button_url ); ?>" />
+        </p>
+
+
 
         <?php
     }
@@ -262,11 +311,15 @@ class Foo_Widget extends WP_Widget {
         $instance['show_post_id'] = ( !empty( $new_instance['show_post_id'] ) ) ? $new_instance['show_post_id'] : NULL;
         $instance['tagline'] = ( !empty( $new_instance['tagline'] ) ) ? strip_tags( $new_instance['tagline'] ) : '';
  		$instance['left_button_text'] = ( !empty( $new_instance['left_button_text'] ) ) ? strip_tags( $new_instance['left_button_text'] ) : '';
+ 		$instance['left_button_url'] = ( !empty( $new_instance['left_button_url'] ) ) ? strip_tags( $new_instance['left_button_url'] ) : '';
+ 		$instance['right_button_text'] = ( !empty( $new_instance['right_button_text'] ) ) ? strip_tags( $new_instance['right_button_text'] ) : '';
+ 		$instance['right_button_url'] = ( !empty( $new_instance['right_button_url'] ) ) ? strip_tags( $new_instance['right_button_url'] ) : '';
+
  
         return $instance;
     }
  
-} // class Foo_Widget
+} // class MP_Show_Widget
 
 // Register Foo_Widget widget
-add_action( 'widgets_init', function() { register_widget( 'Foo_Widget' ); } );
+add_action( 'widgets_init', function() { register_widget( 'MP_Show_Widget' ); } );
