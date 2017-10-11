@@ -111,7 +111,7 @@ class MP_Show_Widget extends WP_Widget {
         parent::__construct(
             'mp_show_widget', // Base ID
             'Music Picnic Show', // Name
-            array( 'description' => __( 'This is the widget description.', 'text_domain' ), ) // Args
+            array( 'description' => __( 'Displays the featured image, title, tagline, and up to two configureable buttons for a show. For use in Home Page Panels only (maximum 1 show per panel). Do not place other widgets in the same panel.', 'text_domain' ), ) // Args
         );
     }
  
@@ -135,12 +135,12 @@ class MP_Show_Widget extends WP_Widget {
 
         echo $before_widget;
 
-        if ( ! empty( $title ) ) {
-            echo $before_title . $title . $after_title;
-        }
-        // echo __( 'Hello, World!', 'text_domain' );
+        // Display Widget Title (disabled)
+        // if ( ! empty( $title ) ) {
+        //     echo $before_title . $title . $after_title;
+        // }
 
-        //
+        // Output widget content
         if ( ! empty( $show_post_id ) ) {
 
 	        // Output featured image if show has one
@@ -172,17 +172,17 @@ class MP_Show_Widget extends WP_Widget {
 
 	        echo '</div>';
 
-			} else {
+		} else {
 
-				// Output instructions on how to find Show Post ID
-				echo '<div style="color: #000000;">';
-				echo '<h2>How to Use this Widget</h2>';
-				echo '<p>To use this widget, specify a Show Post ID.</p>';
-				echo '<p>To find the Show Post ID, click <a href="' . site_url() . '/wp-admin/edit.php?post_type=shows' . '">here</a> and hover your cursor over a Show name.</p>';
-				echo '<p>Your browser will preview the URL for you (likely in the bottom corner). The number after <pre>post=</pre> in the URL is the Show Post ID.</p>';
-				echo '</div>';
+			// Output instructions on how to find Show Post ID
+			echo '<div style="color: #000000;">';
+			echo '<h2>How to Use this Widget</h2>';
+			echo '<p>To use this widget, specify a Show Post ID.</p>';
+			echo '<p>To find the Show Post ID, click <a href="' . site_url() . '/wp-admin/edit.php?post_type=shows' . '">here</a> and hover your cursor over a Show name.</p>';
+			echo '<p>Your browser will preview the URL for you (likely in the bottom corner). The number after <pre>post=</pre> in the URL is the Show Post ID.</p>';
+			echo '</div>';
 
-			}
+		}
 
         echo $after_widget;
     }
@@ -195,13 +195,13 @@ class MP_Show_Widget extends WP_Widget {
      * @param array $instance Previously saved values from database.
      */
     public function form( $instance ) {
-    	// Get or set Title
-        if ( isset( $instance[ 'title' ] ) ) {
-            $title = $instance[ 'title' ];
-        }
-        else {
-            $title = __( 'New title', 'text_domain' );
-        }
+    	// Get or set Title (disabled)
+        // if ( isset( $instance[ 'title' ] ) ) {
+        //     $title = $instance[ 'title' ];
+        // }
+        // else {
+        //     $title = __( 'New title', 'text_domain' );
+        // }
 
         // Get or set Show Post ID
         if ( isset( $instance[ 'show_post_id' ] ) ) {
@@ -255,10 +255,12 @@ class MP_Show_Widget extends WP_Widget {
 
 
         ?>
-        <p>
-        <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Widget Title:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-        </p>
+
+        <!-- Show admin form for widget title (disabled) -->
+<!--    <p>
+        <label for="<?php // echo $this->get_field_name( 'title' ); ?>"><?php // _e( 'Widget Title:' ); ?></label>
+        <input class="widefat" id="<?php // echo $this->get_field_id( 'title' ); ?>" name="<?php // echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php // echo esc_attr( $title ); ?>" />
+        </p> -->
 
         <p>
         <label for="<?php echo $this->get_field_name( 'show_post_id' ); ?>"><?php _e( 'Show Post ID:' ); ?></label>
@@ -307,14 +309,13 @@ class MP_Show_Widget extends WP_Widget {
      */
     public function update( $new_instance, $old_instance ) {
         $instance = array();
-        $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        // $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';	// Update widget title (disabled)
         $instance['show_post_id'] = ( !empty( $new_instance['show_post_id'] ) ) ? $new_instance['show_post_id'] : NULL;
         $instance['tagline'] = ( !empty( $new_instance['tagline'] ) ) ? strip_tags( $new_instance['tagline'] ) : '';
  		$instance['left_button_text'] = ( !empty( $new_instance['left_button_text'] ) ) ? strip_tags( $new_instance['left_button_text'] ) : '';
  		$instance['left_button_url'] = ( !empty( $new_instance['left_button_url'] ) ) ? strip_tags( $new_instance['left_button_url'] ) : '';
  		$instance['right_button_text'] = ( !empty( $new_instance['right_button_text'] ) ) ? strip_tags( $new_instance['right_button_text'] ) : '';
  		$instance['right_button_url'] = ( !empty( $new_instance['right_button_url'] ) ) ? strip_tags( $new_instance['right_button_url'] ) : '';
-
  
         return $instance;
     }
