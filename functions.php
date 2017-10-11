@@ -126,12 +126,20 @@ class Foo_Widget extends WP_Widget {
     public function widget( $args, $instance ) {
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
+        $show_post_id = apply_filters( 'widget_show_post_id', $instance['show_post_id'] );
  
         echo $before_widget;
+
         if ( ! empty( $title ) ) {
             echo $before_title . $title . $after_title;
         }
-        echo __( 'Hello, World!', 'text_domain' );
+        // echo __( 'Hello, World!', 'text_domain' );
+
+        // Output featured image if show has one
+        if ( ! empty( $show_post_id ) && has_post_thumbnail( $show_post_id ) ) {
+			echo get_the_post_thumbnail( $show_post_id, 'large', array( 'class' => 'mp-show-widget-image' ) );
+        }
+
         echo $after_widget;
     }
  
@@ -155,7 +163,7 @@ class Foo_Widget extends WP_Widget {
             $show_post_id = $instance[ 'show_post_id' ];
         }
         else {
-            $show_post_id = 0;
+            $show_post_id = NULL;
         }
 
         ?>
@@ -184,7 +192,7 @@ class Foo_Widget extends WP_Widget {
     public function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-        $instance['show_post_id'] = ( !empty( $new_instance['show_post_id'] ) ) ? $new_instance['show_post_id'] : 0;
+        $instance['show_post_id'] = ( !empty( $new_instance['show_post_id'] ) ) ? $new_instance['show_post_id'] : NULL;
  
         return $instance;
     }

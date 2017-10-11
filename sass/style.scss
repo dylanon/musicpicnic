@@ -582,3 +582,12 @@ h6 {
 	}
 
 }
+
+/* Show Widgets */
+.mp-show-widget-image {
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+
+	width: 100%;
+}
