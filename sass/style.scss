@@ -585,9 +585,24 @@ h6 {
 
 /* Show Widgets */
 .mp-show-widget-image {
+	filter: brightness(0.7);
 	height: 100%;
 	-o-object-fit: cover;
 	object-fit: cover;
-
 	width: 100%;
+}
+
+.mp-show-widget-show-title {
+	@extend .h2;
+	color: #ffffff;
+	font-style: italic;
+	// Center the title
+	position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.widget_mp_show_widget {
+	position: relative;
 }

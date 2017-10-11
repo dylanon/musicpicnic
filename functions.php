@@ -135,10 +135,19 @@ class Foo_Widget extends WP_Widget {
         }
         // echo __( 'Hello, World!', 'text_domain' );
 
-        // Output featured image if show has one
-        if ( ! empty( $show_post_id ) && has_post_thumbnail( $show_post_id ) ) {
-			echo get_the_post_thumbnail( $show_post_id, 'large', array( 'class' => 'mp-show-widget-image' ) );
-        }
+        //
+        if ( ! empty( $show_post_id ) ) {
+
+	        // Output featured image if show has one
+	        if ( has_post_thumbnail( $show_post_id ) ) {
+				echo get_the_post_thumbnail( $show_post_id, 'large', array( 'class' => 'mp-show-widget-image' ) );
+	        }
+
+	        echo '<p class="mp-show-widget-show-title">';
+	        echo get_the_title( $show_post_id );
+	        echo '</p>';
+
+		}
 
         echo $after_widget;
     }
