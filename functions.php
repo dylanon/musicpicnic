@@ -109,9 +109,9 @@ class Foo_Widget extends WP_Widget {
      */
     public function __construct() {
         parent::__construct(
-            'foo_widget', // Base ID
-            'Foo_Widget', // Name
-            array( 'description' => __( 'A Foo Widget', 'text_domain' ), ) // Args
+            'mp_show_widget', // Base ID
+            'Music Picnic Show', // Name
+            array( 'description' => __( 'This is the widget description.', 'text_domain' ), ) // Args
         );
     }
  
