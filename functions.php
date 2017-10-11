@@ -128,6 +128,7 @@ class Foo_Widget extends WP_Widget {
         $title = apply_filters( 'widget_title', $instance['title'] );
         $show_post_id = apply_filters( 'widget_show_post_id', $instance['show_post_id'] );
         $tagline = apply_filters( 'widget_show_tagline', $instance['tagline'] );
+        $left_button_text = apply_filters( 'widget_left_button_text', $instance['left_button_text'] );
  
         echo $before_widget;
 
@@ -158,8 +159,10 @@ class Foo_Widget extends WP_Widget {
 
 	        echo '<div class="mp-show-widget-buttons">';
 
-	        echo '<a href="#" class="mp-show-widget-button mp-button-top">click here</a>';
-	        echo '<a href="#" class="mp-show-widget-button mp-button-bottom">click here</a>';
+	        if ( ! empty( $left_button_text ) ) {
+	        	echo '<a href="#" class="mp-show-widget-button mp-button-left">' . $left_button_text . '</a>';
+	        }
+	        echo '<a href="#" class="mp-show-widget-button mp-button-right">click here</a>';
 
 	        echo '</div>';
 
@@ -210,6 +213,14 @@ class Foo_Widget extends WP_Widget {
             $tagline = __( 'now touring', 'text_domain' );
         }
 
+    	// Get or set Left Button text
+        if ( isset( $instance[ 'left_button_text' ] ) ) {
+            $left_button_text = $instance[ 'left_button_text' ];
+        }
+        else {
+            $left_button_text = __( 'learn more', 'text_domain' );
+        }
+
         ?>
         <p>
         <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Widget Title:' ); ?></label>
@@ -225,6 +236,12 @@ class Foo_Widget extends WP_Widget {
         <label for="<?php echo $this->get_field_name( 'tagline' ); ?>"><?php _e( 'Tagline (appears above show name):' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'tagline' ); ?>" name="<?php echo $this->get_field_name( 'tagline' ); ?>" type="text" value="<?php echo esc_attr( $tagline ); ?>" />
         </p>
+
+        <p>
+        <label for="<?php echo $this->get_field_name( 'left_button_text' ); ?>"><?php _e( 'Button 1 Text:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'left_button_text' ); ?>" name="<?php echo $this->get_field_name( 'left_button_text' ); ?>" type="text" value="<?php echo esc_attr( $left_button_text ); ?>" />
+        </p>
+
 
         <?php
     }
@@ -244,6 +261,7 @@ class Foo_Widget extends WP_Widget {
         $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
         $instance['show_post_id'] = ( !empty( $new_instance['show_post_id'] ) ) ? $new_instance['show_post_id'] : NULL;
         $instance['tagline'] = ( !empty( $new_instance['tagline'] ) ) ? strip_tags( $new_instance['tagline'] ) : '';
+ 		$instance['left_button_text'] = ( !empty( $new_instance['left_button_text'] ) ) ? strip_tags( $new_instance['left_button_text'] ) : '';
  
         return $instance;
     }
