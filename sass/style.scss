@@ -584,6 +584,11 @@ h6 {
 }
 
 /* Show Widgets */
+.widget_mp_show_widget {
+	color: #ffffff;
+	position: relative;
+}
+
 .mp-show-widget-image {
 	filter: brightness(0.7);
 	height: 100%;
@@ -592,18 +597,24 @@ h6 {
 	width: 100%;
 }
 
-.mp-show-widget-show-title {
-	@extend .h2;
-	color: #ffffff;
-	font-style: italic;
-	font-weight: 600;
-	// Center the title
+.mp-show-widget-title-block {
+	// Center the title and tagline horizontally, and position vertically
 	position: absolute;
-    top: 25%;
     left: 50%;
+    top: 25%;
+    text-align: center;
     transform: translate(-50%, -50%);
 }
 
-.widget_mp_show_widget {
-	position: relative;
+.mp-show-widget-tagline {
+	font-size: 110%;
+	font-weight: 300;
+	margin: 0;
+}
+
+.mp-show-widget-post-title {
+	font-size: 150%;
+	font-style: italic;
+	font-weight: 600;
+	margin: 4px 0 0 0; // Add some margin to separate from tagline
 }

@@ -127,6 +127,7 @@ class Foo_Widget extends WP_Widget {
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
         $show_post_id = apply_filters( 'widget_show_post_id', $instance['show_post_id'] );
+        $tagline = apply_filters( 'widget_show_tagline', $instance['tagline'] );
  
         echo $before_widget;
 
@@ -143,9 +144,17 @@ class Foo_Widget extends WP_Widget {
 				echo get_the_post_thumbnail( $show_post_id, 'large', array( 'class' => 'mp-show-widget-image' ) );
 	        }
 
-	        echo '<p class="mp-show-widget-show-title">';
+	        echo '<div class="mp-show-widget-title-block">';
+
+	        echo '<p class="mp-show-widget-tagline">';
+	        echo $tagline;
+	        echo '</p>';
+
+	        echo '<p class="mp-show-widget-post-title">';
 	        echo get_the_title( $show_post_id );
 	        echo '</p>';
+
+	        echo '</div>';
 
 		}
 
@@ -167,6 +176,7 @@ class Foo_Widget extends WP_Widget {
         else {
             $title = __( 'New title', 'text_domain' );
         }
+
         // Get or set Show Post ID
         if ( isset( $instance[ 'show_post_id' ] ) ) {
             $show_post_id = $instance[ 'show_post_id' ];
@@ -175,9 +185,17 @@ class Foo_Widget extends WP_Widget {
             $show_post_id = NULL;
         }
 
+    	// Get or set Text above the show title (tagline)
+        if ( isset( $instance[ 'tagline' ] ) ) {
+            $tagline = $instance[ 'tagline' ];
+        }
+        else {
+            $tagline = __( 'now touring', 'text_domain' );
+        }
+
         ?>
         <p>
-        <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+        <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Widget Title:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
 
@@ -185,6 +203,12 @@ class Foo_Widget extends WP_Widget {
         <label for="<?php echo $this->get_field_name( 'show_post_id' ); ?>"><?php _e( 'Show Post ID:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'show_post_id' ); ?>" name="<?php echo $this->get_field_name( 'show_post_id' ); ?>" type="number" value="<?php echo $show_post_id; ?>" />
         </p>
+
+        <p>
+        <label for="<?php echo $this->get_field_name( 'tagline' ); ?>"><?php _e( 'Tagline (appears above show name):' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'tagline' ); ?>" name="<?php echo $this->get_field_name( 'tagline' ); ?>" type="text" value="<?php echo esc_attr( $tagline ); ?>" />
+        </p>
+
         <?php
     }
  
@@ -202,6 +226,7 @@ class Foo_Widget extends WP_Widget {
         $instance = array();
         $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
         $instance['show_post_id'] = ( !empty( $new_instance['show_post_id'] ) ) ? $new_instance['show_post_id'] : NULL;
+        $instance['tagline'] = ( !empty( $new_instance['tagline'] ) ) ? strip_tags( $new_instance['tagline'] ) : '';
  
         return $instance;
     }
