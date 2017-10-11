@@ -20,7 +20,7 @@ remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 //* Enqueue fonts
 function mp_enqueue_styles() {
 	wp_enqueue_style( 'google-font-montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,900' );
-	wp_enqueue_style( 'google-font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700' );
+	wp_enqueue_style( 'google-font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600i,700' );
 }
 add_action( 'wp_enqueue_scripts', 'mp_enqueue_styles' );
 
