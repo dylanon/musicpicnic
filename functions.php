@@ -184,6 +184,7 @@ class Foo_Widget extends WP_Widget {
     public function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['show_post_id'] = ( !empty( $new_instance['show_post_id'] ) ) ? $new_instance['show_post_id'] : 0;
  
         return $instance;
     }
