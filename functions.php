@@ -143,16 +143,30 @@ class Foo_Widget extends WP_Widget {
      * @param array $instance Previously saved values from database.
      */
     public function form( $instance ) {
+    	// Get or set Title
         if ( isset( $instance[ 'title' ] ) ) {
             $title = $instance[ 'title' ];
         }
         else {
             $title = __( 'New title', 'text_domain' );
         }
+        // Get or set Show Post ID
+        if ( isset( $instance[ 'show_post_id' ] ) ) {
+            $show_post_id = $instance[ 'show_post_id' ];
+        }
+        else {
+            $show_post_id = 0;
+        }
+
         ?>
         <p>
         <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+
+        <p>
+        <label for="<?php echo $this->get_field_name( 'show_post_id' ); ?>"><?php _e( 'Show Post ID:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'show_post_id' ); ?>" name="<?php echo $this->get_field_name( 'show_post_id' ); ?>" type="number" value="<?php echo $show_post_id; ?>" />
         </p>
         <?php
     }
