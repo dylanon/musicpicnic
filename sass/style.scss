@@ -601,9 +601,9 @@ h6 {
 	// Center the title and tagline horizontally, and position vertically
 	position: absolute;
     left: 50%;
-    top: 25%;
+    top: 20%;
     text-align: center;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
 
 .mp-show-widget-tagline {
@@ -617,4 +617,35 @@ h6 {
 	font-style: italic;
 	font-weight: 600;
 	margin: 4px 0 0 0; // Add some margin to separate from tagline
+}
+
+.mp-show-widget-buttons {
+	position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.mp-show-widget-button {
+	display: inline-block;
+    // Button styles
+	background-color: transparent;
+	border: 2px solid #ffffff;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #ffffff;
+	margin: 0 16px;
+	padding: 8px 16px;
+	text-decoration: none;
+	-webkit-transition: background-color 0.25s, color 0.25s;
+	-moz-transition: background-color 0.25s, color 0.25s;
+	-o-transition: background-color 0.25s, color 0.25s;
+	transition: background-color 0.25s, color 0.25s;
+}
+
+.mp-show-widget-button:hover {
+ 		background-color: #ffffff;
+ 		border-color: #ffffff;
+ 		color: #000000;
 }

@@ -156,6 +156,13 @@ class Foo_Widget extends WP_Widget {
 
 	        echo '</div>';
 
+	        echo '<div class="mp-show-widget-buttons">';
+
+	        echo '<a href="#" class="mp-show-widget-button mp-button-top">click here</a>';
+	        echo '<a href="#" class="mp-show-widget-button mp-button-bottom">click here</a>';
+
+	        echo '</div>';
+
 		}
 
         echo $after_widget;
