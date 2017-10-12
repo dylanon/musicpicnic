@@ -589,12 +589,12 @@ h6 {
 }
 
 /* Show Widgets */
-.widget_mp_show_widget {
+.widget_mp_show_widget {	// Extended for News widget
 	color: #ffffff;
 	position: relative;
 }
 
-.mp-show-widget-image {
+.mp-show-widget-image {		// Extended for News widget
 	filter: brightness(0.7);
 	height: 100%;
 	-o-object-fit: cover;
@@ -617,7 +617,7 @@ h6 {
 	margin: 0;
 }
 
-.mp-show-widget-post-title {
+.mp-show-widget-post-title {	// Extended for News widget
 	font-size: 150%;
 	font-style: italic;
 	font-weight: 600;
@@ -653,4 +653,52 @@ h6 {
  		background-color: #ffffff;
  		border-color: #ffffff;
  		color: #000000;
+}
+
+/* News Widget */
+.widget_mp_news_widget {
+	@extend .widget_mp_show_widget;
+
+	a {
+		color: #ffffff;
+	}
+}
+
+.mp-news-widget-image {
+	@extend .mp-show-widget-image;
+}
+
+.mp-news-widget-content {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	overflow: hidden;
+	transform: translateX(-50%);
+	text-align: center;
+	width: 90%;
+}
+
+.mp-news-widget-post-title {
+	@extend .mp-show-widget-post-title;
+	font-style: normal;
+	font-weight: 900;
+	text-transform: lowercase;
+}
+
+.mp-news-widget-date {
+	text-transform: lowercase;
+}
+
+.mp-news-widget-post-text {
+	margin-top: 24px;
+	// Override inline alignment from WordPress WYSIWYG editor
+	p {
+		text-align: center !important;
+	}
+}
+
+.mp-news-widget-post-permalink {
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
 }

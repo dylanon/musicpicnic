@@ -324,3 +324,95 @@ class MP_Show_Widget extends WP_Widget {
 
 // Register MP_Show_Widget widget
 add_action( 'widgets_init', function() { register_widget( 'MP_Show_Widget' ); } );
+
+/**
+ * Adds Music Picnic Latest News widget.
+ */
+class MP_Latest_News_Widget extends WP_Widget {
+ 
+    /**
+     * Register widget with WordPress.
+     */
+    public function __construct() {
+        parent::__construct(
+            'mp_news_widget', // Base ID
+            'Music Picnic Latest News', // Name
+            array( 'description' => __( 'Displays the most recent blog post with its featured image as a background. For use in Home Page Panels only.', 'text_domain' ), ) // Args
+        );
+    }
+ 
+    /**
+     * Front-end display of widget.
+     *
+     * @see WP_Widget::widget()
+     *
+     * @param array $args     Widget arguments.
+     * @param array $instance Saved values from database.
+     */
+    public function widget( $args, $instance ) {
+        extract( $args );
+
+        // The Query
+        $the_query = new WP_Query( array( 'posts_per_page' => 1 ) );
+
+        echo $before_widget;
+
+	    // The Loop
+		if ( $the_query->have_posts() ) {
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
+
+		        // Output featured image if post has one
+		        if ( has_post_thumbnail() ) {
+					echo get_the_post_thumbnail( $post, 'large', array( 'class' => 'mp-news-widget-image' ) );
+		        }
+
+		        echo '<div class="mp-news-widget-content">';
+				echo '<p class="mp-news-widget-post-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
+				echo '<p class="mp-news-widget-date">' . get_the_date() . '</p>';
+				echo '<div class="mp-news-widget-post-text">';
+				the_excerpt();
+				echo '</div>'; // .mp-news-widget-post-text
+				echo '</div>'; // .mp-news-widget-content
+				echo '<a class="mp-news-widget-post-permalink" href="' . get_permalink() . '">read more</a>';
+			}
+			/* Restore original Post Data */
+			wp_reset_postdata();
+		} else {
+			// no posts found
+			echo "<p>No posts found</p>";
+		}
+
+        echo $after_widget;
+    }
+ 
+    /**
+     * Back-end widget form.
+     *
+     * @see WP_Widget::form()
+     *
+     * @param array $instance Previously saved values from database.
+     */
+    public function form( $instance ) {
+    }
+ 
+    /**
+     * Sanitize widget form values as they are saved.
+     *
+     * @see WP_Widget::update()
+     *
+     * @param array $new_instance Values just sent to be saved.
+     * @param array $old_instance Previously saved values from database.
+     *
+     * @return array Updated safe values to be saved.
+     */
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+ 
+        return $instance;
+    }
+ 
+} // class MP_Latest_News_Widget
+
+// Register MP_Latest_News_Widget widget
+add_action( 'widgets_init', function() { register_widget( 'MP_Latest_News_Widget' ); } );
