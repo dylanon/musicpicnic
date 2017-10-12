@@ -13,10 +13,13 @@ add_filter( 'genesis_edit_post_link', 'mp_return_false' ); // See functions.php
 add_action ( 'genesis_before_entry_content', 'mp_wrap_frontpage_content_open' );
 function mp_wrap_frontpage_content_open() {
 	echo '<div class="mp-frontpage-content-bg">';
+	echo '<div class="mp-frontpage-content">';
+	echo '<div class="mp-frontpage-tagline"><p>' . get_post_meta( get_the_ID(), 'frontpage_tagline', true ) . '</p></div>';
 }
 
 add_action ( 'genesis_after_entry_content', 'mp_wrap_frontpage_content_close' );
 function mp_wrap_frontpage_content_close() {
+	echo '</div>';
 	echo '</div>';
 }
 
