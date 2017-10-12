@@ -60,7 +60,7 @@ function mp_register_home_widget_areas() {
 		'id'            => 'mp_home_1',
 		'class'         => 'mp-home-1',
 		'name'          => __( 'Home Page Panel 1', 'text_domain' ),
-		'description'   => __( 'Home page widget 1.', 'text_domain' ),
+		'description'   => __( 'Home page widget area 1.', 'text_domain' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	);
@@ -70,7 +70,7 @@ function mp_register_home_widget_areas() {
 		'id'            => 'mp_home_2',
 		'class'         => 'mp-home-2',
 		'name'          => __( 'Home Page Panel 2', 'text_domain' ),
-		'description'   => __( 'Home page widget 1.', 'text_domain' ),
+		'description'   => __( 'Home page widget area 2.', 'text_domain' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	);
@@ -80,7 +80,7 @@ function mp_register_home_widget_areas() {
 		'id'            => 'mp_home_3',
 		'class'         => 'mp-home-3',
 		'name'          => __( 'Home Page Panel 3', 'text_domain' ),
-		'description'   => __( 'Home page widget 3.', 'text_domain' ),
+		'description'   => __( 'Home page widget area 3.', 'text_domain' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	);
@@ -90,7 +90,7 @@ function mp_register_home_widget_areas() {
 		'id'            => 'mp_home_4',
 		'class'         => 'mp-home-4',
 		'name'          => __( 'Home Page Panel 4', 'text_domain' ),
-		'description'   => __( 'Home page widget 4.', 'text_domain' ),
+		'description'   => __( 'Home page widget area 4.', 'text_domain' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	);
