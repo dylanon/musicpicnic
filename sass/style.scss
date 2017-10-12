@@ -337,6 +337,26 @@ h6 {
 
 }
 
+/* Single Blog Post Template */
+.mp-single-nav-links {
+	max-width: $page-width;
+	margin: 0 auto;
+	padding: 16px;
+}
+
+.mp-single-nav-link {
+	display: inline-block;
+	width: 50%;
+}
+
+.mp-prev-post {
+	text-align: left;
+}
+
+.mp-next-post {
+	text-align: left;
+}
+
 /* Shows Archive Template Styles */
 
 .shows-archive {
