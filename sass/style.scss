@@ -28,6 +28,9 @@ $page-width:					950px;
 // Normalize stylesheet v7.0.0
 @import "normalize";
 
+// WordPress core styles (for TinyMCE)
+@import "wpcore";
+
 // Make lengths include padding
 html {
 	box-sizing: border-box;
@@ -355,6 +358,17 @@ h6 {
 
 .mp-next-post {
 	text-align: left;
+}
+
+.single-post {
+
+	.entry-meta {
+		font-weight: 300;
+		margin: 0 auto 32px auto;
+		text-align: center;
+		text-transform: lowercase;
+	}
+
 }
 
 /* Shows Archive Template Styles */
