@@ -322,5 +322,5 @@ class MP_Show_Widget extends WP_Widget {
  
 } // class MP_Show_Widget
 
-// Register Foo_Widget widget
+// Register MP_Show_Widget widget
 add_action( 'widgets_init', function() { register_widget( 'MP_Show_Widget' ); } );
