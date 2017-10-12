@@ -757,3 +757,65 @@ h6 {
 	bottom: 5%;
 	right: 5%;
 }
+
+/* Responsive Styles */
+@media (max-width: 1149px) {
+
+	// Front Page -----------------------
+
+	// Stack tagline and page content
+	.home .mp-frontpage-content {
+		.mp-frontpage-tagline,
+		.entry-content {
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	// Stack home page widgets
+	.home .content .widget {
+		width: 100%;
+	}
+
+	// Adjust Shows Widget buttons
+	.mp-show-widget-button {
+		display: block;
+		margin-top: 12px;
+	}
+
+	// Shows Archives ------------------
+
+	.shows-archive {
+		// Stack show images and excerpts
+		.entry-image,
+		.shows-archive-text-wrapper {
+			width: 100%;
+		}
+		// Add margin to separate shows
+		.shows-archive-text-wrapper {
+			margin-bottom: 16px;
+		}
+		// Adjust show titles
+		.entry-title {
+			text-align: center;
+		}
+	}
+
+	// Footer --------------------------
+
+	// Stack footer widgets
+	.footer-widget-area {
+		padding: 20px 0;
+		text-align: center;
+		width: 100%;
+	}
+	.footer-widgets > .wrap {
+		padding: 0;
+	}
+	.footer-widgets .widget_nav_menu ul.menu {
+		-webkit-column-count: unset;
+		column-count: unset;
+		padding: 0;
+	}
+
+}
