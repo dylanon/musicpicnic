@@ -761,6 +761,53 @@ h6 {
 /* Responsive Styles */
 @media (max-width: 1149px) {
 
+	// Navbar ---------------------------
+
+	// Wordmark
+	.site-header .title-area {
+		float: none;
+		width: 100%;
+	}
+
+	// Nav
+	.site-header .nav-primary {
+		// display: none; // Uncomment to hide nav
+		float: none;
+		text-align: center;
+	}
+
+	// Top-level nav items
+	.site-header .genesis-nav-menu > li {
+		// Stack top-level menu items
+		display: block;
+		padding: 0;
+
+		// Make clickable area wider
+		a {
+			display: block;
+			padding: 6px 0;
+		}
+
+	}
+
+	// Add a plus sign after menu item if there is a submenu
+	.site-header .genesis-nav-menu .menu-item-has-children > a::after {
+		content: " +";
+	}
+
+	// Second-level nav items
+	.site-header .sub-menu {
+		// display: block; // Uncomment to show for debugging
+		position: relative;
+		transform: unset;
+	}
+
+	// Display submenu on parent "hover" (touch)
+	.site-header .genesis-nav-menu li.menu-item-has-children .sub-menu:hover {
+		display: block;
+	}
+
+
 	// Front Page -----------------------
 
 	// Stack tagline and page content
