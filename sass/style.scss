@@ -296,7 +296,7 @@ blockquote {
 
 	// Style content strip
 	.mp-frontpage-content-bg {
-		background-color: #1e34b2;
+		background-color: #000000; // #1e34b2
 		// padding: 4px;
 		width: 100%;
 	}
@@ -310,6 +310,7 @@ blockquote {
 
 		a {
 			color: $primary-color;
+			// color: #ffffff;
 		}
 
 		p {
