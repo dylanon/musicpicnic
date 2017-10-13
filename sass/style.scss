@@ -771,8 +771,47 @@ h6 {
 }
 
 /* Responsive Styles */
-@media (max-width: 1149px) {
+@media (max-width: 767px) {
 
+	// Footer --------------------------
+
+	// Stack footer widgets
+	.footer-widget-area {
+		padding: 20px 0;
+		text-align: center;
+		width: 100%;
+	}
+	.footer-widgets > .wrap {
+		padding: 0;
+	}
+	.footer-widgets .widget_nav_menu ul.menu {
+		-webkit-column-count: unset;
+		column-count: unset;
+		padding: 0;
+	}
+
+	// Shows Archives ------------------
+
+	.shows-archive {
+		// Stack show images and excerpts
+		.entry-image,
+		.shows-archive-text-wrapper {
+			width: 100%;
+		}
+		// Add margin to separate shows
+		.shows-archive-text-wrapper {
+			margin-bottom: 16px;
+		}
+		// Adjust show titles
+		.entry-title {
+			text-align: center;
+		}
+	}
+
+
+}
+
+@media (max-width: 1023px) {
 	// Navbar ---------------------------
 
 	// Wordmark
@@ -829,6 +868,13 @@ h6 {
 		display: block;
 	}
 
+	// Footer -------------------------
+	.footer-widgets > .wrap {
+		padding: 0;
+	}
+}
+
+@media (max-width: 1023px) {
 
 	// Front Page -----------------------
 
@@ -852,39 +898,11 @@ h6 {
 		margin-top: 12px;
 	}
 
-	// Shows Archives ------------------
+}
 
-	.shows-archive {
-		// Stack show images and excerpts
-		.entry-image,
-		.shows-archive-text-wrapper {
-			width: 100%;
-		}
-		// Add margin to separate shows
-		.shows-archive-text-wrapper {
-			margin-bottom: 16px;
-		}
-		// Adjust show titles
-		.entry-title {
-			text-align: center;
-		}
+@media (min-width: 1024px) and (max-width: 1149px) {
+	.site-title {
+		font-size: 24px;
+		margin-top: 4px;
 	}
-
-	// Footer --------------------------
-
-	// Stack footer widgets
-	.footer-widget-area {
-		padding: 20px 0;
-		text-align: center;
-		width: 100%;
-	}
-	.footer-widgets > .wrap {
-		padding: 0;
-	}
-	.footer-widgets .widget_nav_menu ul.menu {
-		-webkit-column-count: unset;
-		column-count: unset;
-		padding: 0;
-	}
-
 }
