@@ -88,6 +88,18 @@ hr {
 	text-transform: uppercase;
 }
 
+// Style collapsed nav icon
+.mp-nav-icon {
+	display: none; // Hide by default
+	height: 24px;
+	width: 24px;
+	position: absolute;
+	top: 20px;
+	right: 16px;
+	background: transparent url(assets/ic_menu_black_24px.svg) no-repeat center center;
+	cursor: pointer;
+}
+
 // Styling for child elements of <header>
 .site-header {
 
@@ -769,11 +781,21 @@ h6 {
 		width: 100%;
 	}
 
+	// Nav icon
+	.mp-nav-icon {
+		display: block;
+	}
+
 	// Nav
 	.site-header .nav-primary {
-		// display: none; // Uncomment to hide nav
+		display: none; // Uncomment to hide nav
 		float: none;
 		text-align: center;
+	}
+
+	// Show top-level menu when nav icon is clicked
+	.site-header .nav-primary.mp-nav-active {
+		display: block;
 	}
 
 	// Top-level nav items
