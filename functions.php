@@ -21,6 +21,7 @@ remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 function mp_enqueue_styles() {
 	wp_enqueue_style( 'google-font-montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,900' );
 	wp_enqueue_style( 'google-font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600i,700' );
+    wp_enqueue_script( 'mpnav', get_stylesheet_directory_uri() . '/assets/mpnav.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'mp_enqueue_styles' );
 
