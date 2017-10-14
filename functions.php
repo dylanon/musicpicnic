@@ -35,7 +35,7 @@ add_action( 'genesis_header', 'genesis_do_nav', 12 );
 //* Add Featured Image to header for Pages, Posts, and Attachments
 function mp_page_header_featured_image() {
 	if ( is_singular() and has_post_thumbnail() ) {
-		the_post_thumbnail( 'full', array( 'class' => 'mp-page-header-image') );
+		the_post_thumbnail( array( 1280, auto ), array( 'class' => 'mp-page-header-image') );
 	}
 }
 add_action( 'genesis_entry_header', 'mp_page_header_featured_image', 7);
