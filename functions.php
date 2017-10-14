@@ -417,3 +417,23 @@ class MP_Latest_News_Widget extends WP_Widget {
 
 // Register MP_Latest_News_Widget widget
 add_action( 'widgets_init', function() { register_widget( 'MP_Latest_News_Widget' ); } );
+
+/* Pick random primary color on page load */
+function mp_random_color() {
+    $colors = array( "#ffed51", "#dd1b19", "#87bd45", "#a3d2ee" ); // The colour options
+    $pick = array_rand( $colors, 1 ); // Pick a random key (e.g. 2)
+    // Take a break from PHP ?>
+    <style>
+        .site-header,
+        .site-footer,
+        .footer-widgets {
+            background-color: <?php echo $colors[$pick]; ?>;
+        }
+        .home .mp-frontpage-content a {
+            color: <?php echo $colors[$pick]; ?>;
+        }
+    </style>
+    <?php // We were on a break (from PHP )
+}
+// Hook in to <head> section
+add_action( 'wp_head', 'mp_random_color' );
