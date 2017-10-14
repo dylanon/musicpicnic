@@ -6,7 +6,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Music Picnic Theme' );
 define( 'CHILD_THEME_URL', 'https://dylanon.com' );
-define( 'CHILD_THEME_VERSION', '0.0.1' );
+define( 'CHILD_THEME_VERSION', '0.1.0' );
 
 //* Add HTML5 markup structure for Genesis Framework
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
