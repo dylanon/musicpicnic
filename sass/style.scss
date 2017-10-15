@@ -339,10 +339,8 @@ blockquote {
 	}
 
 	.content {
-		// Clearfix
-		content: "";
-		display: table;
-		clear: both;
+
+		// Removed a clearfix from here - it broke the front page layout in Firefox
 
 		// Widget Areas
 		.widget {
